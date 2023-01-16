@@ -50,6 +50,8 @@ class Controler
 			include("vues/entete.php");
 			include("vues/cellier.php");
 			include("vues/pied.php");
+
+			echo json_encode($data);
                   
 		}
 		

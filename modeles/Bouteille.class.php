@@ -55,7 +55,7 @@ class Bouteille extends Modele {
 						INNER JOIN vino__bouteille b ON c.id_bouteille = b.id
 						INNER JOIN vino__type t ON t.id = b.type
 						'; 
-		if(($res = $this->_db->query($requete)) ==	 true)
+		if(($res = $this->_db->query($requete)) == true)
 		{
 			if($res->num_rows)
 			{
