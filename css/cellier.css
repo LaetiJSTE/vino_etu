@@ -1,56 +1,99 @@
-.containerCatalogue {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
- 
+ .containerCatalogue {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+ }
 
-}
-.carteCatalogue {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    text-align: center;
-    min-height: 400px;
-    line-height: 0.85;
-    
-}
+ .carteCatalogue {
+   text-align: center;
+   width: 20%;
+   padding: 20px;
+   margin: 10px;
+   text-align: center;
+   border: 1px solid #ccc;
+   background-color: #fff;
+   box-shadow: 2px 2px 5px #ccc;
+ }
 
-
- 
-section.containerCatalogue>div {
-    margin: 10px;
-}
+ .carteCatalogue p {
+   margin-top: 10px;
+   font-size: 0.9em;
+   line-height: 1.5;
+ }
 
 
-div.carteCatalogue div {
-    background: none;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 20px;
+ .carteCatalogue:hover {
+   box-shadow: 2px 2px 5px #ccc;
+   border: px solid black;
+   transform: translateY(-5px);
+ }
 
-}
+ .carteCatalogue img {
+   width: 50%;
+ }
 
-div.carteCatalogue div:hover {
-    background: none;
-    box-shadow: #910717 0px 5px 15px;
-  
-}
+ .nom {
+   font-size: 1.5em;
+   font-weight: bold;
+   font-family: 'Montserrat', sans-serif;
+   margin-bottom: 10px;
+ }
 
 
 
-.carteCatalogue div {
-    color: black;
-    text-decoration: none;
-    max-width: 295px;
-    min-width: 294px;
-    min-height: 400px;
-    max-height: 500px;
-}
+ .options button {
+   padding: 10px 20px;
+   background-color: #910717;
+   color: #fff;
+   border: none;
+   cursor: pointer;
+   transition: all 0.3s ease-in-out;
 
-.carteCatalogue img {
-    max-height: 50%;
-    max-width: 50%;
+ }
 
+
+ .options button:hover {
+   background-color: #fff;
+   color: #910717;
+ }
+
+ .urlSaq {
+   text-align: center;
+   margin-bottom: 10px;
+   border-bottom: 1px solid black;
+
+ }
+
+ .urlSaq a {
+   color: #910717;
+   text-decoration: none;
+   font-size: 1em;
+ }
+
+
+ .urlSaq:hover {
+   transition: all 0.5s ease-in-out;
+   background-color: black;
+ }
+
+ .urlSaq a:hover{
+  color: white;
 } 
+
+/* médiaqueries*/ 
+ @media screen and (max-width: 768px) {
+  .carteCatalogue {
+    width: 50%;
+  }
+
+  
+  .urlSaq a {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .carteCatalogue {
+    width: 100%;
+  }
+}

@@ -15,18 +15,17 @@
 	<script src="./js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 	<script src="./js/plugins.js"></script>
 	<script src="./js/main.js"></script>
-	
 </head>
 
 <body>
 
 	<header>
 		<nav>
-			<a href="?requete=accueil" class="logo"><img src="./img/WineBottle.svg" alt="logo vino"></a>
+			<a href="?requete=accueil" class="titre"><h1> <i> Vino, mon cellier Perso</i></h1></a>
 			<div class="link">
 				<a href="?requete=accueil">Mon cellier</a>
 				<a href="?requete=ajouterNouvelleBouteilleCellier">Ajouter une bouteille au cellier</a>
-				<!--<a href="">Déconnexion</a>-->
+				<a href="">Déconnexion</a>
 			</div>
 		</nav>
 	</header>

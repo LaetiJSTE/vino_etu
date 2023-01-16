@@ -29,6 +29,19 @@ class Bouteille extends Modele {
 		return $rows;
 	}
 	
+	public function getBouteilleCellier($id){
+		$requete = 'SELECT vino__bouteille.id as idBouteille, vino__bouteille.nom, vino__bouteille.image, vino__bouteille.pays, vino__type.type AS type_vin
+		FROM vino__bouteille
+		JOIN vino__type
+		ON vino__bouteille.type = vino__type.id
+		WHERE vino__bouteille.id =' .$id ;
+
+		$res = $this->_db->query($requete);
+		$resultat = $res->fetch_assoc();
+		return $resultat;
+
+	}
+
 	public function getListeBouteilleCellier()
 	{
 		
@@ -55,7 +68,7 @@ class Bouteille extends Modele {
 						INNER JOIN vino__bouteille b ON c.id_bouteille = b.id
 						INNER JOIN vino__type t ON t.id = b.type
 						'; 
-		if(($res = $this->_db->query($requete)) == true)
+		if(($res = $this->_db->query($requete)) ==	 true)
 		{
 			if($res->num_rows)
 			{
@@ -116,7 +129,6 @@ class Bouteille extends Modele {
 			 
 		}
 		
-		
 		//var_dump($rows);
 		return $rows;
 	}
@@ -168,9 +180,18 @@ class Bouteille extends Modele {
         
 		return $res;
 	}
+
+	public function modifierBouteilleCellier($id, $nom, $pays, $type)
+	{
+		$requete = "UPDATE vino__bouteille SET nom = ". $nom. ", pays = ". $pays. ", type = ". $type. " WHERE id = ". $id ;
+		$res = $this->_db->query($requete);
+		return $res;
+
+		/**
+		 * Soit la methode ne fonctionne pas avec la db
+		 * le format json passé dans le corps de la requête pourrait ne pas être dans le bon format, ce qui entraîne l'échec de la fonction json_decode.
+		 * il se peut qu'il y a un soucis avec le row ou je modifie dans la database
+		 */
+	}
 }
-
-
-
-
 ?>

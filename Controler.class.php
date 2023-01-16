@@ -37,6 +37,12 @@ class Controler
 				case 'boireBouteilleCellier':
 					$this->boireBouteilleCellier();
 					break;
+				case 'pageModifier':
+					$this->pageModifier();
+					break;
+				case 'modifierBouteilleCellier':
+					$this->modifierBouteilleCellier();
+					break;
 				default:
 					$this->accueil();
 					break;
@@ -50,9 +56,16 @@ class Controler
 			include("vues/entete.php");
 			include("vues/cellier.php");
 			include("vues/pied.php");
-
-			echo json_encode($data);
                   
+		}
+
+		private function pageModifier(){
+			$bte = new Bouteille();
+			$data = $bte->getBouteilleCellier($_GET['id']);
+			include("vues/entete.php");
+			include("vues/modifier.php");
+			include("vues/pied.php");
+			// echo json_encode($data);
 		}
 		
 
@@ -82,7 +95,7 @@ class Controler
 			//var_dump($body);
 			if(!empty($body)){
 				$bte = new Bouteille();
-				//var_dump($_POST['data']);
+				var_dump($_POST['data']);
 				
 				//var_dump($data);
 				$resultat = $bte->ajouterBouteilleCellier($body);
@@ -115,20 +128,31 @@ class Controler
 			echo json_encode($resultat);
 		}
 		
+		private function modifierBouteilleCellier()
+		{
+			// $nom = $_GET['nom'];
+			// $pays = $_GET['pays'];
+			// $type = $_GET['type'];
+			// $id = $_GET['id'];
+
+			// if($type == 'Vin rouge'){
+			// 	$type = 1;
+			// }
+			// else if($type == 'Vin blanc'){
+			// 	$type = 2;
+			// }
+
+			// $bte = new Bouteille();
+			// $bte->modifierBouteilleCellier($id, $nom, $pays, $type);
+			// header('Location: index.php');
+			// $this->accueil();
+
+			$body = json_decode(file_get_contents('php://input'));
+			
+			$bte = new Bouteille();
+			$resultat = $bte->modifierBouteilleCellier($body->id, $body->nom, $body->pays, $body->type);
+			echo json_encode($resultat);
+			
+		}
 }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
