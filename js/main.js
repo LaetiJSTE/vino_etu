@@ -13,7 +13,7 @@ const BaseURL = document.baseURI;
 console.log(BaseURL);
 window.addEventListener('load', function () {
   document.querySelectorAll(".btnBoire").forEach(function (element) {
-    console.log(element);
+    // console.log(element);
     element.addEventListener("click", function (evt) {
       let id = evt.target.parentElement.dataset.id;
       let requete = new Request(BaseURL + "index.php?requete=boireBouteilleCellier", { method: 'POST', body: '{"id": ' + id + '}' });
@@ -32,10 +32,53 @@ window.addEventListener('load', function () {
           console.debug(data);
         }).catch(error => {
           console.error(error);
-        });
+      });
     })
 
   });
+
+  //modifier
+
+  document.querySelectorAll(".btnModifier").forEach(function (element) {
+    element.addEventListener("click", function (evt) {
+      let id = evt.target.parentElement.dataset.id;
+      console.log(id);
+      //redirect to a the detail of product page
+      window.location.href = BaseURL + "index.php?requete=pageModifier&id=" + id;
+      
+    })
+
+  });
+
+  if(document.querySelector(".btnModifierBouteille")){
+
+    document.querySelector(".btnModifierBouteille").addEventListener("click", function (evt) {
+      evt.preventDefault();
+      let id = document.querySelector("[name='id']").value;
+      let nom = document.querySelector("[name='nom']").value;
+      let pays = document.querySelector("[name='pays']").value;
+      let type = document.querySelector("[name='type']").value;
+
+    let requete = new Request("http://localhost/Vino/vino_etu/" + "index.php?requete=modifierBouteilleCellier", { method: 'POST', 
+    body: '{"id": ' + id + ', "nom": "' + nom + '", "pays": "' + pays + '", "type": "' + type + '"}' });
+    
+    fetch(requete)
+    .then(response => {
+        if (response.status === 200) {
+          console.log(response);
+          return response;
+        } else {
+          throw new Error('Erreur');
+        }
+      })
+      .then(data => {
+        // location.reload();
+      }).catch(error => {
+        console.error(error);
+      });
+    });
+  }
+    //fin modifier
 
   document.querySelectorAll(".btnAjouter").forEach(function (element) {
     element.addEventListener("click", function (evt) {
@@ -61,7 +104,6 @@ window.addEventListener('load', function () {
   });
 
   let inputNomBouteille = document.querySelector("[name='nom_bouteille']");
-  console.log(inputNomBouteille);
   let liste = document.querySelector('.listeAutoComplete');
 
   if (inputNomBouteille) {
@@ -114,9 +156,11 @@ window.addEventListener('load', function () {
       }
     });
 
-    let btnAjouter = document.querySelector("[name='ajouterBouteilleCellier']");
+    let btnAjouter = document.querySelector("ajouterBouteilleCellier");
     if (btnAjouter) {
       btnAjouter.addEventListener("click", function (evt) {
+        evt.preventDefault();
+        console.log('ok');
         var param = {
           "id_bouteille": bouteille.nom.dataset.id,
           "date_achat": bouteille.date_achat.value,
