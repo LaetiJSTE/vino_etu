@@ -6,6 +6,8 @@ footer{
 
     
   }
+
+
   footer>div {
   padding: 10px 0 10px; 
   background-color: #000;
@@ -13,7 +15,6 @@ footer{
   text-align: center;
   margin-left: 2%;
   margin-right: 2%;
-
 }
 
 
