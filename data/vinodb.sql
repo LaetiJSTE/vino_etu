@@ -109,3 +109,30 @@ CREATE TABLE `vino__type` (
 
 INSERT INTO `vino__type` VALUES(1, 'Vin rouge');
 INSERT INTO `vino__type` VALUES(2, 'Vin blanc');
+
+
+--
+-- Structure de la table `role`
+--
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
+  `role_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `role` varchar(150) NOT NULL,
+  PRIMARY KEY (`role_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+--
+-- Structure de la table `utilisateur`
+--
+
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `uti_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `uti_mdp` varchar(255) NOT NULL,
+  `uti_nom` varchar(255) NOT NULL,
+  `uti_courriel` varchar(255) NOT NULL,
+  `uti_role_id` int(11) NOT NULL,
+  PRIMARY KEY (`uti_id`),
+  KEY `uti_role_id` (`uti_role_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
