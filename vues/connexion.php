@@ -6,7 +6,7 @@
         <input type="password" placeholder="Mot de passe" name="" id="" required>
         <button type="submit" value="Connexion">Se connecter</button><br>
 
-        <a href="">Créer un compte</a>
+        <a href="?requete=utilisateurNouveau">Créer un compte</a>
     </form>
 
 
