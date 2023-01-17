@@ -25,6 +25,7 @@
 			<div class="link">
 				<a href="?requete=accueil">Mon cellier</a>
 				<a href="?requete=ajouterNouvelleBouteilleCellier">Ajouter une bouteille au cellier</a>
+				<a href="?requete=connexion">connexion</a>
 				<a href="">Déconnexion</a>
 			</div>
 		</nav>
