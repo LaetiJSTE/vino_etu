@@ -61,7 +61,7 @@ class Controler
             $data = $bte->getListeBouteilleCellier();
 			include("vues/entete.php");
 			include("vues/cellier.php");
-			include("vues/pied.php");
+			
                   
 		}
 
