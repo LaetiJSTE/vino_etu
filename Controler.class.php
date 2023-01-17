@@ -43,6 +43,12 @@ class Controler
 				case 'modifierBouteilleCellier':
 					$this->modifierBouteilleCellier();
 					break;
+				case 'connexion':
+					$this->connexion();
+					break;
+				case 'utilisateurNouveau':
+					$this->utilisateurNouveau();
+					break;
 				default:
 					$this->accueil();
 					break;
@@ -153,6 +159,23 @@ class Controler
 			$resultat = $bte->modifierBouteilleCellier($body->id, $body->nom, $body->pays, $body->type);
 			echo json_encode($resultat);
 			
+		}
+
+		private function connexion()
+		{
+			           
+			include("vues/entete.php");
+			include("vues/connexion.php");
+			include("vues/pied.php");
+                  
+		}
+		private function utilisateurNouveau()
+		{
+			           
+			include("vues/entete.php");
+			include("vues/utilisateurNouveau.php");
+			include("vues/pied.php");
+                  
 		}
 }
 ?>
