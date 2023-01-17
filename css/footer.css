@@ -1,15 +1,14 @@
-footer{
-  position: absolute;  
-  box-sizing: border-box;
-  bottom: -100; 
+footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
 
-    
-  }
+
+}
 
 
-  footer>div {
-  padding: 10px 0 10px; 
+footer>div {
+  padding: 10px 0 10px;
   background-color: #000;
   color: white;
   text-align: center;
