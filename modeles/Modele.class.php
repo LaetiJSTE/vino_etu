@@ -11,6 +11,10 @@
  * 
  */
 class Modele {
+
+	
+		private  $rp; // Objet de requête paramétrée PDO
+	
 	
     protected $_db;
 	function __construct ()
@@ -22,6 +26,28 @@ class Modele {
 	{
 		
 	}
+
+
+	private function soumettre(string $req, array $params) 
+    {
+      
+        $this->_db = $this->_db->prepare($req);    
+        $this->rp->execute($params);
+  
+    }
+	protected function lireUn(string $req, array $params=[]) 
+    {
+        $this->soumettre($req, $params);
+        return $this->rp->fetch();
+    }
+
+
+	protected function creer(string $req, array $params=[]) 
+    {
+        $this->soumettre($req, $params);
+        return $this->_db->lastInsertId();
+    }
+
 }
 
 
